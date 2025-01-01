@@ -1,0 +1,28 @@
+{
+  "name": "@enjoyment-luxury-hotel/shared",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    "./unocss": "./libs/unocss/index.ts",
+    "./components": "./libs/components/index.ts",
+    "./composables": "./libs/compoables/index.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23"
+  },
+  "peerDependencies": {
+    "unocss": "catalog:",
+    "vue": "catalog:"
+  },
+  "devDependencies": {
+    "uno-preset-dark-mode-theme": "workspace:*",
+    "unplugin-icons": "^0.22.0",
+    "vite": "^6.0.6"
+  }
+}

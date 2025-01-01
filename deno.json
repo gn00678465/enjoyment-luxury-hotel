@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno task --eval \"pnpm dev\""
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  },
+  "workspace": ["./packages/uno-preset-dark-mode-theme"]
+}
