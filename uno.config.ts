@@ -1,9 +1,9 @@
-import { defineConfig, transformerVariantGroup, transformerCompileClass, presetMini } from 'unocss';
-import { presetShared, presetSharedRules } from '@enjoyment-luxury-hotel/shared/unocss';
+import { defineConfig, transformerVariantGroup, transformerCompileClass, presetUno } from 'unocss';
+import { presetShared, presetSharedRules } from './packages/shared/libs/unocss';
 
 export default defineConfig({
   presets: [
-    presetMini({ dark: 'class' }),
+    presetUno({ dark: 'class' }),
     presetShared({
       breakpoints: {
         'xs': '375px',

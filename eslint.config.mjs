@@ -1,6 +1,11 @@
 // @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
+import antfu from '@antfu/eslint-config';
+import withNuxt from './.nuxt/eslint.config.mjs';
 
 export default withNuxt(
-  // Your custom configs here
-)
+  antfu({
+    unocss: true,
+    vue: true,
+    typescript: true
+  }),
+);

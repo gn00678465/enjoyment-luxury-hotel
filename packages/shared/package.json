@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "uno-preset-dark-mode-theme": "workspace:*",
-    "unplugin-icons": "^0.22.0",
+    "unplugin-icons": "catalog:",
     "vite": "^6.0.6"
   }
 }

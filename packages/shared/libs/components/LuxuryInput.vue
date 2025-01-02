@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, toRefs } from 'vue';
+import { computed, InputHTMLAttributes, toRefs } from 'vue';
 import { convertPaddingToCSSVars } from '../utils';
 
 defineSlots<{
@@ -13,11 +13,12 @@ const props = withDefaults(defineProps<LuxuryInputProps>(), {
   status: undefined,
   showFeedback: true,
   showLabel: true,
+  type: 'text'
 });
 
 const modelValue = defineModel<string | null>('value', { default: null });
 
-const { themeOverrides, label, status, placeholder, required, showLabel, showFeedback } = toRefs(props);
+const { themeOverrides, label, status, placeholder, required, showLabel, showFeedback, type } = toRefs(props);
 
 const styles = computed(() => {
   const _themeOverride: ThemeOverride = Object.assign({
@@ -50,6 +51,7 @@ export interface LuxuryInputProps {
   required?: boolean;
   showFeedback?: boolean;
   showLabel?: boolean;
+  type?: InputHTMLAttributes['type']
 }
 
 type ThemeOverride = {
@@ -78,12 +80,12 @@ type ThemeOverride = {
       <span
         v-if="required"
         class="flex-shrink-0 ml-auto text-primary"
-      >{{ $t('required') }}</span>
+      >required</span>
     </div>
     <div>
       <input
         v-model="modelValue"
-        type="text"
+        :type="type"
         :placeholder="placeholder"
         name="inputname"
         class="luxury-input text-body2 md:text-body block w-full outline-none border text-neutral-80  placeholder:text-neutral-40"

@@ -9,4 +9,6 @@
   "cSpell.words": [
     "Nuxt"
   ],
+  "unocss.include": [
+  ],
 }

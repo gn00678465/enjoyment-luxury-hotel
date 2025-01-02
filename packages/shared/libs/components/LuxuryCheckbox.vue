@@ -26,7 +26,7 @@ export interface BaseCheckboxProps {
 
 <template>
   <label
-    class="relative cursor-pointer inline-block rounded-lg flex items-center gap-x-2"
+    class="relative cursor-pointer inline-block rounded-lg flex items-center gap-x-2 text-white"
     :style="styles"
   >
     <input
@@ -41,10 +41,7 @@ export interface BaseCheckboxProps {
         'bg-white': !value,
       }"
     >
-      <MdiCheck
-        v-if="value"
-        class="text-white"
-      />
+      <MdiCheck v-if="value" />
     </div>
     <slot class="text-subtitle md:text-title" />
   </label>

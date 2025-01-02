@@ -1,3 +1,5 @@
+import Icons from 'unplugin-icons/vite';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
@@ -127,4 +129,10 @@ export default defineNuxtConfig({
     },
     feature: 'minWidth',
   },
+
+  vite: {
+    plugins: [
+      Icons({ compiler: 'vue3', autoInstall: true }),
+    ],
+  }
 });

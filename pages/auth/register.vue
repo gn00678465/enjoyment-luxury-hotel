@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 definePageMeta({
+  name: 'ClientAuthRegister',
   layout: 'auth-layout',
 });
 
