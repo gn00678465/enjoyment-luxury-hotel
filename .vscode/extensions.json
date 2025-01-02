@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "nuxtr.nuxtr-vscode",
+    "dbaeumer.vscode-eslint",
+    "vue.volar",
+    "chakrounanas.turbo-console-log",
+    "streetsidesoftware.code-spell-checker",
+    "formulahendry.auto-rename-tag",
+    "antfu.unocss"
+  ]
+}

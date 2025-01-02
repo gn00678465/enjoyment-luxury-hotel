@@ -1,14 +1,4 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "@enjoyment-luxury-hotel/shared/unocss": ["./packages/shared/libs/unocss/index.ts"],
-      "@enjoyment-luxury-hotel/shared/components": ["./packages/shared/libs/components/index.ts"],
-      "@enjoyment-luxury-hotel/shared/compoables": ["./packages/shared/libs/compoables/index.ts"]
-    }
-  },
-  "include": [
-    "./uno.config.ts"
-  ]
 }

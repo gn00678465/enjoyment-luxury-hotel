@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   extends: [
     'assets',
   ],
+
   modules: [
     ['@pinia/nuxt', {
       autoImports: ['defineStore', 'acceptHMRUpdate'],
@@ -41,6 +42,12 @@ export default defineNuxtConfig({
     app: {
       apiUrl: '',
     },
+  },
+
+  alias: {
+    '@enjoyment-luxury-hotel/shared/unocss': './packages/shared/libs/unocss/index.ts',
+    '@enjoyment-luxury-hotel/shared/components': './packages/shared/libs/components/index.ts',
+    '@enjoyment-luxury-hotel/shared/compoables': './packages/shared/libs/compoables/index.ts',
   },
   compatibilityDate: '2024-11-01',
 
@@ -81,13 +88,13 @@ export default defineNuxtConfig({
   image: {
     format: ['webp', 'png'],
     screens: {
-      xs: 0,
-      sm: 576,
-      md: 768,
-      lg: 992,
-      xl: 1200,
-      xxl: 1400,
-      xxxl: 1537,
+      'xs': 375,
+      'sm': 576,
+      'md': 768,
+      'lg': 992,
+      'xl': 1200,
+      '2xl': 1400,
+      '3xl': 1537,
     },
     presets: {
       avatar: {
@@ -98,20 +105,25 @@ export default defineNuxtConfig({
         },
       },
     },
+    provider: 'cloudinary',
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/drhaq32ec/image/upload/',
+      modifiers: {
+        effect: 'sharpen:100',
+        quality: 'auto:best',
+      },
     },
   },
 
   viewport: {
     breakpoints: {
-      xs: 0,
-      sm: 576,
-      md: 768,
-      lg: 992,
-      xl: 1200,
-      xxl: 1400,
-      xxxl: 1537,
+      'xs': 375,
+      'sm': 576,
+      'md': 768,
+      'lg': 992,
+      'xl': 1200,
+      '2xl': 1400,
+      '3xl': 1537,
     },
     feature: 'minWidth',
   },
