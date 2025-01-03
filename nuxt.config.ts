@@ -78,14 +78,20 @@ export default defineNuxtConfig({
     },
   },
 
-  // i18n: {
-  //   langDir: 'locales',
-  //   locales: [
-  //     { code: 'zh-TW', file: 'zh-TW.json' },
-  //   ],
-  //   defaultLocale: 'zh-TW',
-  //   strategy: 'prefix_and_default',
-  // },
+  i18n: {
+    langDir: 'locales',
+    locales: [
+      { code: 'zh-TW', file: 'zh-TW.json' },
+      { code: 'en-US', file: 'en-US.json' },
+    ],
+    defaultLocale: 'zh-TW',
+    strategy: 'prefix_and_default',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'lang',
+      cookieSecure: true
+    }
+  },
 
   image: {
     format: ['webp', 'png'],
