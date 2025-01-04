@@ -9,3 +9,12 @@ export type * from './LuxuryInput.vue';
 
 export { default as LuxuryCheckbox } from './LuxuryCheckbox.vue'
 export type * from './LuxuryCheckbox.vue'
+
+export { default as LuxurySteps } from './LuxurySteps.vue'
+export type * from './LuxurySteps.vue'
+
+export { default as LuxuryLabel } from './LuxuryLabel.vue'
+export type * from './LuxuryLabel.vue'
+
+export { default as LuxuryDropdown } from './LuxuryDropdown.vue'
+export type * from './LuxuryDropdown.vue'

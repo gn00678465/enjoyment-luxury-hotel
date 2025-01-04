@@ -1,18 +1,22 @@
 <template>
-  <div class="h-full flex items-center justify-center mx-5 md:mx-0 flex-col">
-    <div class="w-104 max-w-full">
-      <p class="text-primary block text-left w-full">享樂酒店，誠摯歡迎</p>
-      <h2 class="text-white block text-left w-full">立即開始旅程</h2>
-      <form @submit.prevent>
-        <LuxuryInput label="電子信箱"></LuxuryInput>
-        <LuxuryInput label="密碼" type="password"></LuxuryInput>
+  <div class="h-full flex items-center justify-center flex-col px-5 pb-5 md:(px-0 pb-0)">
+    <div class="w-104 max-w-full space-y-10">
+      <div>
+        <p class="text-primary block text-left w-full text-subtitle md:text-title mb-2">享樂酒店，誠摯歡迎</p>
+        <h2 class="text-white block text-left w-full text-h3 md:text-h1">立即開始旅程</h2>
+      </div>
+      <form id="login-form" class="space-y-4" @submit.prevent>
+        <LuxuryInput label="電子信箱" :showFeedback="false" placeholder="請輸入電子信箱"></LuxuryInput>
+        <LuxuryInput label="密碼" type="password" :showFeedback="false" placeholder="請輸入密碼"></LuxuryInput>
         <div class="flex items-center justify-between">
           <LuxuryCheckbox>記住帳號</LuxuryCheckbox>
-          <LuxuryButton text :themeOverrides="{ padding: '0px' }">忘記密碼</LuxuryButton>
+          <NuxtLink class=":uno: text-primary text-sm md:text-base underline-primary underline underline-offset-1" :to="{ path: '/auth/register' }">忘記密碼</NuxtLink>
         </div>
-        <LuxuryButton block attrType="submit">會員登入</LuxuryButton>
       </form>
-      <p class="text-white">沒有會員嗎？<NuxtLink class="text-primary" :to="{ name: 'ClientAuthRegister' }">前往註冊</NuxtLink></p>
+      <LuxuryButton block attrType="submit" form="login-form">會員登入</LuxuryButton>
+      <p class="text-white text-body2 md:text-body">沒有會員嗎？
+        <NuxtLink class=":uno: text-primary text-sm md:text-base underline-primary underline underline-offset-1" :to="{ path: '/auth/register' }">前往註冊</NuxtLink>
+      </p>
     </div>
   </div>
 </template>

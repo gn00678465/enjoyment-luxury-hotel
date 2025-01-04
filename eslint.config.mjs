@@ -6,6 +6,7 @@ export default withNuxt(
   antfu({
     unocss: true,
     vue: true,
-    typescript: true
+    typescript: true,
+    stylistic: true
   }),
 );

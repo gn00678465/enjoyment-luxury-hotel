@@ -1,4 +1,5 @@
 import Icons from 'unplugin-icons/vite';
+import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -74,8 +75,8 @@ export default defineNuxtConfig({
   icon: {
     serverBundle: {
       externalizeIconsJson: true,
-      collections: ['mdi'],
-    },
+      collections: ['bi', 'mdi', 'ic', 'fluent']
+    }
   },
 
   i18n: {
@@ -138,7 +139,13 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [
-      Icons({ compiler: 'vue3', autoInstall: true }),
+      Icons({
+        compiler: 'vue3',
+        autoInstall: true,
+        customCollections: {
+          custom: FileSystemIconLoader('./assets/icons'),
+        },
+      }),
     ],
   }
 });
