@@ -15,7 +15,7 @@
         <div class="col-6">
           <p class="text-h1">Rooms</p>
         </div>
-        <div class="col-1 md:col-6">
+        <div class="col-1 md:col-6 overflow-hidden">
           <p class="text-h1">Rooms</p>
         </div>
       </FlexRow>

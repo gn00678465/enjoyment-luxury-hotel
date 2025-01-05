@@ -31,6 +31,13 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
     }
   `;
 
+  const colStyles  = `
+  .col {
+    flex: 1 0 0%;
+  }
+  ${generateResponsiveColumns(cols)}
+  `
+
   if (breakpoints && feature === 'minWidth') {
     // 按照斷點值從大到小排序
     const sortedBreakpoints = Object.entries(breakpoints)
@@ -42,11 +49,11 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
           max-width: ${value}px;
         }
 
-        ${generateColumns(cols)}
+        ${generateResponsiveColumns(cols, key)}
       }
     `).join('\n');
-
-    styles =  mediaQueries + styles
+    
+    styles = colStyles + mediaQueries + styles
   }
 
   if (breakpoints && feature === 'maxWidth') {
@@ -60,30 +67,26 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
           max-width: ${value}px;
         }
 
-        ${generateColumns(cols)}
+        ${generateResponsiveColumns(cols, key)}
       }
     `).join('\n');
 
-    styles =  styles + mediaQueries
+    styles =  styles + mediaQueries + colStyles
   }
 
   return styles;
 }
 
-function generateColumns(cols?: number) {
-  const base = `
-  .col {
-    flex: 1 0 0%;
-  }
-  `
+function generateResponsiveColumns(cols?: number, prefix: string = '') {
+
   const other = cols ? [...new Array(cols)].map((_, idx) => `
-  .col-${idx + 1} {
+  .${prefix ? `${prefix}\\:` : ''}col-${idx + 1} {
     flex: 0 0 auto;
     width: ${(100 / cols) * (idx + 1)}%;
   }
   `).join('\n') : ''
 
-  return base + other
+  return other
 }
 
 function addToGlobal() {
