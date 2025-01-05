@@ -8,6 +8,12 @@ export default defineNuxtConfig({
     'assets',
   ],
 
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith('swiper-')
+    }
+  },
+
   modules: [
     ['@pinia/nuxt', {
       autoImports: ['defineStore', 'acceptHMRUpdate'],
@@ -135,6 +141,13 @@ export default defineNuxtConfig({
       '3xl': 1537,
     },
     feature: 'minWidth',
+    cookie: {
+      expires: 365, // 365 days
+      name: 'viewport',
+      path: '/',
+      sameSite: 'Strict',
+      secure: true,
+    },
   },
 
   vite: {

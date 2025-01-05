@@ -4,6 +4,11 @@ import IconLogo from '~icons/custom/logo';
 import IcRoundClose from '~icons/ic/round-close';
 import IcRoundMenu from '~icons/ic/round-menu';
 
+defineOptions({
+  inheritAttrs: false
+})
+
+const attrs = useAttrs()
 const props = withDefaults(defineProps<AppHeaderProps>(), {
   showActions: true,
 });
@@ -13,22 +18,43 @@ const { t } = useI18n();
 
 const { bool: mobileCollapse, setFalse, setTrue } = useBoolean(false);
 const navRef = ref<HTMLElement>()
+const triggerRef = ref<HTMLElement>()
 const height = ref(0)
 
+let resizeObserver: ResizeObserver | undefined
+let intersectionObserver: IntersectionObserver | undefined
+
 if (import.meta.client) {
-  const observer = new ResizeObserver(([entry]) => {
+  resizeObserver = new ResizeObserver(([entry]) => {
     const rect = entry.target.getBoundingClientRect()
     height.value = rect.height
   })
 
-  onMounted(() => {
-    navRef.value && observer.observe(navRef.value)
-  })
-
-  onUnmounted(() => {
-    navRef.value && observer.unobserve(navRef.value)
+  intersectionObserver = new IntersectionObserver(([entry]) => {
+    if (navRef.value) {
+      if (entry.isIntersecting) {
+        navRef.value.classList.remove('bg-body')
+        navRef.value.classList.add('bg-transparent')
+      }
+      else {
+        navRef.value.classList.remove('bg-transparent')
+        navRef.value.classList.add('bg-body')
+      }
+    }
   })
 }
+
+onMounted(() => {
+  navRef.value && resizeObserver?.observe(navRef.value)
+  triggerRef.value && intersectionObserver?.observe(triggerRef.value)
+})
+
+onUnmounted(() => {
+  navRef.value && resizeObserver?.unobserve(navRef.value)
+  triggerRef.value && intersectionObserver?.unobserve(triggerRef.value)
+  resizeObserver = undefined
+  intersectionObserver = undefined
+})
 
 defineExpose<AppHeaderInst>({
   height: height
@@ -54,9 +80,11 @@ export interface AppHeaderInst {
 </script>
 
 <template>
+  <div ref="triggerRef" />
   <nav
     ref="navRef"
-    class="app-nav px-3 text-white"
+    v-bind="attrs"
+    class="app-nav px-3 text-white transition-colors duration-300"
   >
     <!-- desktop rwd -->
     <div class="max-w-440 mx-auto flex items-center justify-between">
