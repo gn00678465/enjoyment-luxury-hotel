@@ -12,12 +12,12 @@
     </ClientOnly>
     <FlexContainer :breakpoints="breakpoints" :gutter="24">
       <FlexRow>
-        <div class="col-6">
+        <FlexCol span="6">
           <p class="text-h1">Rooms</p>
-        </div>
-        <div class="col-1 md:col-6 overflow-hidden">
+        </FlexCol>
+        <FlexCol span="1 md:6">
           <p class="text-h1">Rooms</p>
-        </div>
+        </FlexCol>
       </FlexRow>
     </FlexContainer>
   </div>

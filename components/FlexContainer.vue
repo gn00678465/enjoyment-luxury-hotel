@@ -29,9 +29,24 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
       margin-right: auto;
       margin-left: auto;
     }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: calc(var(--gutter-y)* -1);
+      margin-right: calc(var(--gutter-x) / -2);
+      margin-left: calc(var(--gutter-x) / -2);
+      & > * {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: calc(var(--gutter-x) / 2);
+        padding-left: calc(var(--gutter-x) / 2);
+        margin-top: var(--gutter-y);
+      }
+    }
   `;
 
-  const colStyles  = `
+  const colStyles = `
   .col {
     flex: 1 0 0%;
   }
@@ -39,7 +54,7 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
   `
 
   if (breakpoints && feature === 'minWidth') {
-    // 按照斷點值從大到小排序
+    // 按照斷點值從小到大排序
     const sortedBreakpoints = Object.entries(breakpoints)
       .sort(([, a], [, b]) => (a as number) - (b as number));
 
@@ -52,14 +67,14 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
         ${generateResponsiveColumns(cols, key)}
       }
     `).join('\n');
-    
-    styles = colStyles + mediaQueries + styles
+
+    styles = styles + colStyles + mediaQueries
   }
 
   if (breakpoints && feature === 'maxWidth') {
-    // 按照斷點值從小到大排序
+    // 按照斷點值從大到小排序
     const sortedBreakpoints = Object.entries(breakpoints)
-      .sort(([, a], [, b]) => (a as number) - (b as number));
+      .sort(([, a], [, b]) => (b as number) - (a as number));
 
     const mediaQueries = sortedBreakpoints.map(([key, value]) => `
       @media screen and (${widthSetting}: ${value}px) {
@@ -71,14 +86,13 @@ function generateCss(breakpoints?: Record<Breakpoint, number>, feature?: "minWid
       }
     `).join('\n');
 
-    styles =  styles + mediaQueries + colStyles
+    styles = styles + colStyles + mediaQueries
   }
 
   return styles;
 }
 
 function generateResponsiveColumns(cols?: number, prefix: string = '') {
-
   const other = cols ? [...new Array(cols)].map((_, idx) => `
   .${prefix ? `${prefix}\\:` : ''}col-${idx + 1} {
     flex: 0 0 auto;
@@ -93,10 +107,10 @@ function addToGlobal() {
   const style = document.querySelector(`#flex-container`) || document.createElement('style');
   style.id = 'flex-container'
   style.textContent = generateCss(breakpoints.value, feature.value, cols.value);
-  document.head.appendChild(style);
+  document.head.appendChild(style)
 }
 
-onMounted(() => {
+onBeforeMount(() => {
   addToGlobal()
 })
 
@@ -125,5 +139,4 @@ export const flexContainerSymbol = Symbol('flexContainer')
 
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
