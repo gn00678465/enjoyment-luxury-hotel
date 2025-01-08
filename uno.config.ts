@@ -1,5 +1,6 @@
 import { defineConfig, transformerVariantGroup, transformerCompileClass, presetUno } from 'unocss';
 import { presetShared, presetSharedRules } from './packages/shared/libs/unocss';
+import { presetGrid } from 'uno-preset-grid'
 
 export default defineConfig({
   presets: [
@@ -15,6 +16,16 @@ export default defineConfig({
         '3xl': '1537px',
       },
     }),
+    presetGrid({
+      breakpoints: {
+        'xs': '375px',
+        'sm': '576px',
+        'md': '768px',
+        'lg': '992px',
+        'xl': '1200px',
+      },
+      baseFontSize: 16
+    })
   ],
   transformers: [
     transformerVariantGroup(),

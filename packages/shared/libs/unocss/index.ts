@@ -1,4 +1,4 @@
-import { definePreset, type Rule } from 'unocss';
+import { type Rule } from 'unocss';
 import { presetDarkModeTheme, type PresetDarkModeThemeOptions } from 'uno-preset-dark-mode-theme';
 import { luxuryHotelTheme } from './luxury-hotel-theme';
 
@@ -6,7 +6,7 @@ export type PresetSharedOptions = PresetDarkModeThemeOptions & {
   breakpoints?: Record<string, string>;
 };
 
-export const presetShared = definePreset((options?: PresetSharedOptions) => {
+export const presetShared = (options?: PresetSharedOptions) => {
   const { breakpoints = undefined, ..._opts } = options || {};
   return {
     name: 'preset-shared',
@@ -62,7 +62,7 @@ export const presetShared = definePreset((options?: PresetSharedOptions) => {
       },
     ],
   };
-});
+}
 
 export const presetSharedRules: Rule[] = [
   [/^m-(\d+)$/, ([, d]) => ({ margin: `${parseInt(d) / 4}rem` })],
@@ -75,17 +75,22 @@ export const presetSharedRules: Rule[] = [
       'border-radius': 'var(--border-radius)',
     };
   }],
-  [/^linear-gradient-to-(t|b|l|r|tl|tr|bl|br)$/, ([, d]) => {
-    const gradientDirectionMap: Record<string, string> = {
-      t: 'top',
-      b: 'bottom',
-      l: 'left',
-      r: 'right',
-      tl: 'top left',
-      tr: 'top right',
-      bl: 'bottom left',
-      br: 'bottom right',
-    };
-    return { background: `linear-gradient(to ${gradientDirectionMap[d]}, #BE9C7C, #FFF)` };
-  }],
+  [
+    /^deco-line-(t|b|l|r|tl|tr|bl|br)$/,
+    ([, d], { theme }) => {
+      const gradientDirectionMap: Record<string, string> = {
+        t: 'top',
+        b: 'bottom',
+        l: 'left',
+        r: 'right',
+        tl: 'top left',
+        tr: 'top right',
+        bl: 'bottom left',
+        br: 'bottom right',
+      };
+      return { background: `linear-gradient(to ${gradientDirectionMap[d]}, #BE9C7C, #FFF)` };
+    },
+    { autocomplete: 'deco-line-<directions>' }
+  ],
+  
 ];

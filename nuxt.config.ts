@@ -97,7 +97,8 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'lang',
       cookieSecure: true
-    }
+    },
+    vueI18n: './i18n/i18n.config.ts'
   },
 
   image: {

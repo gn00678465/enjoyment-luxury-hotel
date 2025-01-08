@@ -10,16 +10,20 @@
         </template>
       </Carousel>
     </ClientOnly>
-    <FlexContainer :breakpoints="breakpoints" :gutter="24">
-      <FlexRow>
-        <FlexCol span="6">
-          <p class="text-h1">Rooms</p>
-        </FlexCol>
-        <FlexCol span="1 md:6">
-          <p class="text-h1">Rooms</p>
-        </FlexCol>
-      </FlexRow>
-    </FlexContainer>
+    <div class="flex-container py-10 md:(pt-30 pb-40)">
+      <div class="mb-10 md:mb-20">
+        <p class="text-subtitle mb-2 md:(text-h6 mb-4)">房型選擇</p>
+        <h3 class="text-h3 text-primary md:text-h1">各種房型，任您挑選</h3>
+      </div>
+      <div class="row space-y-6 md:space-y-12">
+        <div class="col-12">
+          <RoomCard></RoomCard>
+        </div>
+        <div class="col-12">
+          <RoomCard></RoomCard>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
