@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@headlessui/vue": "^1.7.23"
+    "@headlessui/vue": "catalog:"
   },
   "peerDependencies": {
     "unocss": "catalog:",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "uno-preset-dark-mode-theme": "workspace:*",
     "unplugin-icons": "catalog:",
-    "vite": "^6.0.6"
+    "vite": "^6.0.6",
+    "vue-materials": "workspace:*"
   }
 }

@@ -4,3 +4,6 @@
 [submodule "packages/uno-preset-grid"]
 	path = packages/uno-preset-grid
 	url = https://github.com/gn00678465/uno-preset-grid.git
+[submodule "packages/materials"]
+	path = packages/materials
+	url = https://github.com/gn00678465/vue-materials.git

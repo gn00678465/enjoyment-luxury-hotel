@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary-40">
+  <div class="bg-primary-tint h-full">
     <ClientOnly>
       <Carousel height="466px md:800px" :options="{ navigation: false }">
         <template v-for="i of 5" :key="i">
@@ -30,15 +30,18 @@
 <script setup lang="ts">
 
 definePageMeta({
-  name: 'ClientRooms',
+  name: 'Client_Rooms',
   layout: 'client-layout'
+})
+
+useSeoMeta({
+  title: 'Rooms'
 })
 
 const heroImg = 'https://res.cloudinary.com/drhaq32ec/image/upload/v1734235491/enjoyment-luxury-hotel/qfvsnhmazubqb8w7rae5.png'
 const heroSmImg = 'https://res.cloudinary.com/drhaq32ec/image/upload/v1734235491/enjoyment-luxury-hotel/t4mevjqyr21bmdqjg0w7.png'
 
 const viewport = useViewport()
-const breakpoints = computed(() => Object.fromEntries(Object.entries(viewport.queries.value).map(([k, v]) => [k, (v as { size: number }).size])))
 
 </script>
 

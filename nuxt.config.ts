@@ -27,6 +27,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxtjs/sitemap',
+    '@vueuse/nuxt',
   ],
 
   components: [
@@ -46,7 +47,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@unocss/reset/tailwind.css'],
+  css: ['@unocss/reset/tailwind.css', 'v-calendar/style.css'],
   runtimeConfig: {
     app: {
       apiUrl: '',

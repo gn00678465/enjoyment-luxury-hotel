@@ -11,10 +11,15 @@
     "shared": "pnpm --filter @enjoyment-luxury-hotel/shared"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.6.13",
+    "@floating-ui/vue": "^1.1.6",
+    "@headlessui/vue": "catalog:",
+    "@popperjs/core": "^2.11.8",
     "nuxt": "^3.15.0",
+    "swiper": "^11.2.0",
+    "v-calendar": "^3.1.2",
     "vue": "catalog:",
-    "vue-router": "latest",
-    "swiper": "^11.2.0"
+    "vue-router": "latest"
   },
   "packageManager": "pnpm@9.0.4+sha512.c374b52de3de88c58fd8333df664a737279cdb0e1344ba4054d3b1fffa9a1a3670854f755dca4f16adea3f14be9896a7fcaf167409fe0c1ad60475271dafe81a",
   "devDependencies": {
@@ -30,10 +35,12 @@
     "@types/node": "^22.10.1",
     "@unocss/nuxt": "catalog:",
     "@vite-pwa/nuxt": "^0.10.6",
+    "@vueuse/core": "^12.4.0",
+    "@vueuse/nuxt": "^12.4.0",
     "nuxt-viewport": "^2.2.0",
     "typescript": "~5.6.2",
+    "uno-preset-grid": "workspace:*",
     "unocss": "catalog:",
-    "unplugin-icons": "catalog:",
-    "uno-preset-grid": "workspace:*"
+    "unplugin-icons": "catalog:"
   }
 }

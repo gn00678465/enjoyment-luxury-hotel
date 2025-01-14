@@ -1,8 +1,7 @@
-<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
 import { computed, toRefs } from 'vue';
 import type { VNodeChild } from 'vue';
-import { convertPaddingToCSSVars } from '../utils';
+import { parseSpacingToCSSVar } from 'vue-materials/utils';
 
 const slots = defineSlots<{
   default: () => any;
@@ -37,7 +36,7 @@ const styles = computed(() => {
     borderRadius: '8px',
   }, themeOverrides.value || {});
 
-  const _padding = convertPaddingToCSSVars(_themeOverride.padding);
+  const _padding = parseSpacingToCSSVar(_themeOverride.padding);
 
   return {
     ..._padding,

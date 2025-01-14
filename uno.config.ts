@@ -17,14 +17,22 @@ export default defineConfig({
       },
     }),
     presetGrid({
+      lengthUnit: 'rem',
+      baseFontSize: 16,
       breakpoints: {
-        'xs': '375px',
-        'sm': '576px',
-        'md': '768px',
-        'lg': '992px',
-        'xl': '1200px',
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px',
+        xxl: '1400px'
       },
-      baseFontSize: 16
+      maxWidth: {
+        sm: '540px',
+        md: '720px',
+        lg: '960px',
+        xl: '1140px',
+        xxl: '1320px'
+      }
     })
   ],
   transformers: [

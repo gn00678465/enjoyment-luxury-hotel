@@ -11,9 +11,10 @@ defineOptions({
 const attrs = useAttrs()
 const props = withDefaults(defineProps<AppHeaderProps>(), {
   showActions: true,
+  fade: true
 });
 
-const { showActions } = toRefs(props);
+const { showActions, fade } = toRefs(props);
 const { t } = useI18n();
 
 const { bool: mobileCollapse, setFalse, setTrue } = useBoolean(false);
@@ -46,7 +47,7 @@ if (import.meta.client) {
 
 onMounted(() => {
   navRef.value && resizeObserver?.observe(navRef.value)
-  triggerRef.value && intersectionObserver?.observe(triggerRef.value)
+  fade.value && triggerRef.value && intersectionObserver?.observe(triggerRef.value)
 })
 
 onUnmounted(() => {
@@ -68,10 +69,15 @@ export const appHeaderProps = {
     type: Boolean,
     default: true,
   },
+  fade: {
+    type: Boolean,
+    default: true
+  }
 };
 
 export interface AppHeaderProps {
   showActions?: boolean;
+  fade?: boolean;
 }
 
 export interface AppHeaderInst {
@@ -85,6 +91,7 @@ export interface AppHeaderInst {
     ref="navRef"
     v-bind="attrs"
     class="app-nav px-3 text-white transition-colors duration-300"
+    :class="fade ? 'bg-transparent' : 'bg-body'"
   >
     <!-- desktop rwd -->
     <div class="max-w-440 mx-auto flex items-center justify-between">
