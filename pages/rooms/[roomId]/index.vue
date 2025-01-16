@@ -14,7 +14,8 @@
             <h3 class="text-h3 mb-4">尊爵雙人房</h3>
             <p class="text-body text-neutral-80">享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。</p>
           </div>
-          <RoomInfoLabel label="房型基本資訊">
+          <RoomBasicInfo></RoomBasicInfo>
+          <!-- <RoomInfoLabel label="房型基本資訊">
             <div class="flex items-center gap-x-4">
             <div class="w-24 h-24 border-1 rounded-2 p-4 border-primary-40 bg-white"></div>
             <div class="w-24 h-24 border-1 rounded-2 p-4 border-primary-40 bg-white"></div>
@@ -38,7 +39,7 @@
             <div class="p-6 bg-white rounded-2">
               11111
             </div>
-          </RoomInfoLabel>
+          </RoomInfoLabel> -->
 
           <RoomInfoLabel label="訂房須知">
             <ol class="list-decimal pl-6">
@@ -88,12 +89,19 @@ import { LuxuryButton } from '@enjoyment-luxury-hotel/shared/components'
 definePageMeta({
   name: 'Client_Room:Id',
   layout: 'client-layout',
-  headerFade: false
+  headerFade: false,
+  props: true,
 })
 
-
 useSeoMeta({
-  title: 'Room ID'
+  title: 'Room Detail'
+})
+
+const props = defineProps({
+  roomId: {
+    type: String,
+    required: true
+  }
 })
 
 const viewport = useViewport()

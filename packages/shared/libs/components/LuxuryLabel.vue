@@ -1,18 +1,20 @@
 <template>
   <label :for="htmlFor" class="flex-grow">
-    <span class="text-white text-subtitle md:text-title">{{ label }}</span>
+    <span :class="clsx('text-subtitle md:text-title', labelClass)">{{ label }}</span>
   </label>
 </template>
 
 <script setup lang="ts">
 import { toRefs } from 'vue'
+import { clsx } from 'clsx'
 
 const props = withDefaults(defineProps<LuxuryLabelProps>(), {
   label: '',
-  for: undefined
+  for: undefined,
+  labelClass: 'text-white'
 })
 
-const { label, for: htmlFor } = toRefs(props)
+const { label, for: htmlFor, labelClass } = toRefs(props)
 
 </script>
 
@@ -20,6 +22,7 @@ const { label, for: htmlFor } = toRefs(props)
 export interface LuxuryLabelProps {
   label?: string
   for?: string
+  labelClass?: string
 }
 </script>
 

@@ -13,34 +13,7 @@
           <LuxuryInput :show-feedback="false" type="password" label="確認密碼" placeholder="請再輸入一次密碼"></LuxuryInput>
         </template>
         <template v-if="step === 2">
-          <LuxuryInput :show-feedback="false" label="姓名" placeholder="請輸入姓名" />
-          <LuxuryInput :show-feedback="false" label="手機號碼" placeholder="請輸入手機號碼"></LuxuryInput>
-          <div>
-            <LuxuryLabel label="生日" />
-            <ul class="mt-2 flex items-center gap-x-2 w-full">
-              <li class="flex-grow-1">
-                <LuxuryDropdown class="w-full"></LuxuryDropdown>
-              </li>
-              <li class="flex-grow-1">
-                <LuxuryDropdown class="w-full"></LuxuryDropdown>
-              </li>
-              <li class="flex-grow-1">
-                <LuxuryDropdown class="w-full"></LuxuryDropdown>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <LuxuryLabel label="地址" />
-            <ul class="mt-2 flex items-center gap-x-2 w-full">
-              <li class="flex-grow-1">
-                <LuxuryDropdown class="w-full"></LuxuryDropdown>
-              </li>
-              <li class="flex-grow-1">
-                <LuxuryDropdown class="w-full"></LuxuryDropdown>
-              </li>
-            </ul>
-            <LuxuryInput class="mt-2" :show-feedback="false" type="password" :show-label="false" placeholder="請輸入詳細地址"></LuxuryInput>
-          </div>
+          <UserBasicInfo></UserBasicInfo>
           <LuxuryCheckbox>
             我已閱讀並同意本網站個資使用規範
           </LuxuryCheckbox>
@@ -64,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { LuxuryButton, LuxuryInput, LuxurySteps, LuxuryCheckbox, LuxuryLabel, LuxuryDropdown } from '@enjoyment-luxury-hotel/shared/components';
+import { LuxuryButton, LuxuryInput, LuxurySteps, LuxuryCheckbox } from '@enjoyment-luxury-hotel/shared/components';
 
 definePageMeta({
   name: 'ClientAuthRegister',

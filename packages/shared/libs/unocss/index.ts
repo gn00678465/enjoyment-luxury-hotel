@@ -91,6 +91,5 @@ export const presetSharedRules: Rule[] = [
       return { background: `linear-gradient(to ${gradientDirectionMap[d]}, #BE9C7C, #FFF)` };
     },
     { autocomplete: 'deco-line-<directions>' }
-  ],
-  
+  ]
 ];

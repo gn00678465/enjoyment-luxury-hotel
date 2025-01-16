@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, InputHTMLAttributes, toRefs } from 'vue';
+import { computed, type HTMLAttributes, type InputHTMLAttributes, toRefs } from 'vue';
 import LuxuryLabel from './LuxuryLabel.vue'
-import { convertPaddingToCSSVars } from '../utils';
+import { parseSpacingToCSSVar } from 'vue-materials/utils';
 
 defineSlots<{
   label: () => any;
@@ -20,14 +20,14 @@ const props = withDefaults(defineProps<LuxuryInputProps>(), {
 
 const modelValue = defineModel<string | null>('value', { default: null });
 
-const { themeOverrides, label, status, placeholder, required, showLabel, showFeedback, type, id } = toRefs(props);
+const { themeOverrides, label, status, placeholder, required, showLabel, showFeedback, type, id, labelClass } = toRefs(props);
 
 const styles = computed(() => {
   const _themeOverride: ThemeOverride = Object.assign({
     padding: '16px',
     borderRadius: '8px',
   }, themeOverrides.value?.padding || {});
-  const _padding = convertPaddingToCSSVars(_themeOverride.padding);
+  const _padding = parseSpacingToCSSVar(_themeOverride.padding);
   return {
     ..._padding,
     '--border-radius': _themeOverride.borderRadius,
@@ -48,6 +48,7 @@ const className = computed(setClassName);
 export interface LuxuryInputProps {
   themeOverrides?: Partial<ThemeOverride>;
   label?: string
+  labelClass?: HTMLAttributes['class']
   status?: 'error';
   placeholder?: string;
   required?: boolean;
@@ -72,7 +73,7 @@ type ThemeOverride = {
       v-if="showLabel"
       class="text-subtitle md:text-title flex items-center"
     >
-      <LuxuryLabel :label="label" :for="id" />
+      <LuxuryLabel :label="label" :for="id" :label-class="labelClass" />
       <span
         v-if="required"
         class="flex-shrink-0 ml-auto text-primary"
