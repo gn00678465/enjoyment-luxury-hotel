@@ -34,24 +34,24 @@
               </li>
             </ul>
           </div>
-          <hr class="h-[1px] w-auto bg-neutral-60" />
+          <hr class="divider-h-60" />
           <div>
             <p class="text-h6 font-700 flex items-center justify-between mb-8 md:(text-h4 mb-10)">
               <span>訂房人資訊</span>
-              <span class="text-base font-700 leading-normal tracking-wider underline text-primary underline-primary">套用會員資料</span>
+              <button class="text-base font-700 leading-normal tracking-wider underline text-primary underline-primary transition-colors hover:(text-primary-80 underline-primary-80)">套用會員資料</button>
             </p>
             <form class="space-y-6">
               <UserBasicInfo label-class="text-neutral-100"></UserBasicInfo>
             </form>
           </div>
-          <hr class="h-[1px] w-auto bg-neutral-60" />
+          <hr class="divider-h-60" />
           <div>
             <p class="text-h6 font-700 md:(text-h4)">房間資訊</p>
           </div>
           <RoomBasicInfo></RoomBasicInfo>
         </div>
         <div class="col-12 md:(col block ml-12)">
-          <div class="bg-white p-6 rounded-5 space-y-6 md:space-y-10">
+          <div class="bg-white p-6 rounded-5 space-y-6 md:(space-y-10 sticky top-[calc(var(--h-header)_+_40px)])">
             <div>
               <!-- <NuxtImg></NuxtImg> -->
             </div>
@@ -70,7 +70,7 @@
                   <span class="text-primary">-NT$ 1,000</span>
                 </p>
               </li>
-              <li><hr class="h-[1px] w-auto bg-neutral-60" /></li>
+              <li><hr class="divider-h-60" /></li>
               <li>
                 <p class="flex items-center justify-between text-title font-700">
                   <span>總價</span>
@@ -89,7 +89,6 @@
 <script setup lang="ts">
 import IcBaselineChevronLeft from '~icons/ic/baseline-chevron-left'
 import { LuxuryButton } from '@enjoyment-luxury-hotel/shared/components';
-import { NuxtImg } from '../../../.nuxt/components';
 
 definePageMeta({
   name: 'Client_Room_booking',

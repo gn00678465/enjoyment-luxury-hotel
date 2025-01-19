@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@headlessui/vue": "catalog:",
-    "clsx": "^2.1.1"
+    "clsx": "catalog:"
   },
   "peerDependencies": {
     "unocss": "catalog:",

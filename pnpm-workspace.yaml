@@ -7,3 +7,4 @@ catalog:
   vue: latest
   "unplugin-icons": ^0.22.0
   "@headlessui/vue": ^1.7.23
+  clsx: ^2.1.1
