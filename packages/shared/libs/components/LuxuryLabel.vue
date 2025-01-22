@@ -1,6 +1,7 @@
 <template>
   <label :for="htmlFor" class="flex-grow">
-    <span :class="clsx('text-subtitle md:text-title', labelClass)">{{ label }}</span>
+    <span :class="clsx('block text-subtitle md:text-title', labelClass)">{{ label }}</span>
+    <slot></slot>
   </label>
 </template>
 

@@ -21,3 +21,5 @@ export type * from './LuxuryDropdown.vue'
 
 export { default as LuxuryDatePickerInput } from './LuxuryDatePickerInput.vue'
 export type * from './LuxuryDatePickerInput.vue'
+
+export * from './tabs'
